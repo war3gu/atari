@@ -15,6 +15,7 @@ class Atari:
 
     def __init__(self):
         game_name, game_mode, render, total_step_limit, total_run_limit, clip = self._args()
+        render = True
         env_name = game_name + "Deterministic-v4"  # Handles frame skipping (4) at every iteration
         env = MainGymWrapper.wrap(gym.make(env_name))
         self._main_loop(self._game_model(game_mode, game_name, env.action_space.n), env, render, total_step_limit, total_run_limit, clip)
